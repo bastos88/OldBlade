@@ -4,7 +4,7 @@
   "description": "Aplicação para agendamento de corte de cabelo",
   "main": "index.js",
   "scripts": {
-    "server": "json-server --watch server.json --port 3333",
+    "server": "json-server --watch server.json --port 3000",
     "build": "webpack",
     "dev": "webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1"
