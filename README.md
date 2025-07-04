@@ -11,7 +11,7 @@ O **OldBlade** é uma aplicação web desenvolvida para facilitar o agendamento 
 - 🔍 Visualização e cancelamento de horários
 - ✅ Validação de horários e feedback ao usuário
 - 🧼 Interface responsiva e acessível
-- ⚡ Performance otimizada com Vite
+
 
 ---
 
