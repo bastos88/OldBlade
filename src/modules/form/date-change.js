@@ -5,3 +5,4 @@ const selectedDate = document.getElementById("date");
 selectedDate.onchange = () => {
   schedulesHour();
 };
+schedulesHour();

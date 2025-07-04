@@ -4,21 +4,28 @@ import { hoursSelected } from "./hours-selected.js";
 
 const hours = document.getElementById("hours");
 
-export function hoursLoad({ date }) {
+export function hoursLoad({ date, bookDays }) {
   hours.innerHTML = "";
+
+  const unavailableHours = bookDays.map((schedule) =>
+    dayjs(schedule.when).format("HH:mm")
+  );
+
   const opening = openingHours.map((hour) => {
     //recupera só a hora
     const [schedulesHour] = hour.split(":");
 
     // adciona a hora na data e verifica se está no passado.
 
-    const isHourPast = dayjs(date).add(schedulesHour, "hour").isAfter(dayjs());
+    const isHourPast = dayjs(date).add(schedulesHour, "hour").isBefore(dayjs());
     console.log(isHourPast);
+
+    const available = !unavailableHours.includes(hour) && !isHourPast;
 
     // Define se o horário esta disponível
     return {
       hour,
-      available: isHourPast,
+      available,
     };
   });
 
