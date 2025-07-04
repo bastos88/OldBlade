@@ -1,84 +1,83 @@
-# 🧔‍♂️ OldBlade – Sistema de Agendamento de Cortes de Cabelo
+# 💈 OldBlade - Agendamentos de Corte de Cabelo
 
-> _"Tempo não se perde. Tempo se marca."_  
-> OldBlade é um sistema de agendamentos que une simplicidade, estética e lógica.  
-> Feito para barbearias que valorizam a pontualidade como um ritual — não um detalhe.
+O **OldBlade** é uma aplicação web desenvolvida para facilitar o agendamento de cortes de cabelo em barbearias ou salões. O foco está em uma experiência de usuário simples, responsiva e funcional, com uma interface moderna e direta.
 
 ---
 
-## ✂️ Sobre o Projeto
+## 🚀 Funcionalidades
 
-OldBlade é uma aplicação web para controle de horários de atendimento em barbearias, com foco em **experiência intuitiva** para o cliente e **organização fluida** para o profissional.
-
-✅ Escolha o dia  
-✅ Veja os horários disponíveis  
-✅ Agende com nome e hora  
-✅ Cancele com um clique
+- 📅 Agendamento de horários disponíveis
+- 📲 Integração com base de dados local (JSON Server)
+- 🔍 Visualização e cancelamento de horários
+- ✅ Validação de horários e feedback ao usuário
+- 🧼 Interface responsiva e acessível
+- ⚡ Performance otimizada com Vite
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **HTML5 + CSS3 + JavaScript (ES6+)**
-- **Modularização com ESModules**
-- **`json-server`** (simulando um back-end REST)
-- **Biblioteca `dayjs`** para manipulação de datas
+- **HTML5**
+- **CSS3**
+- **JavaScript (ES6+)**
+- **Biblioteca dayjs para manipulação de datas**
+- **JSON Server**
+- **DOM Manipulation (Vanilla JS)**
 
 ---
 
-## 📂 Estrutura do Projeto
+---
 
+## 🔧 Instalação e Uso Local
 
+```bash
+# Clone o repositório
+git clone https://github.com/bastos88/OldBlade.git
+
+# Acesse a pasta do projeto
+cd OldBlade
+
+# Instale as dependências
+npm install
+
+# Inicie o JSON Server (caso esteja configurado)
+npx json-server --watch server.json
+
+# Em outro terminal
+npm run dev
+```
+
+---
+
+## 🗂️ Estrutura de Pastas
+
+```
 OldBlade/
-├── index.html
-
-├── server.json
-
+├── public/
 ├── src/
-
-│ ├── assets/ # Imagens e ícones
-
-│ ├── services/ # Conexão com a API (fetch, cancelamento, etc)
-
-│ ├── form/ # Carregamento e manipulação do formulário
-
-│ └── schedules/ # Exibição e controle dos agendamentos
-
+│   ├── assets/
+│   ├── modules/
+│   │   ├── schedules/
+│   │   └── cancel/
+│   ├── styles/
+│   └── main.js
+├── server.json
+└── index.html
+```
 
 ---
 
-## 🚀 Como Executar Localmente
+## 🤝 Contribuição
 
-### 1. Clone o repositório:
-```bash
-git clone https://github.com/seu-usuario/oldblade.git
-cd oldblade
+Sinta-se livre para abrir issues ou propor melhorias! Este projeto foi desenvolvido como prática de front-end e manipulação de dados via API mock.
 
-```
+---
 
-### 2. Instale o json-server (caso não tenha):
-```bash
-npm install -g json-server
-```
+## 📬 Contato
 
-### 3. Inicie o servidor fake:
-```bash
-json-server --watch server.json --port 3000
-```
+- LinkedIn: [Leonardo Bastos](https://www.linkedin.com/in/leonardo-bastos-de-macedo/)
+- GitHub: [@bastos88](https://github.com/bastos88)
+- Email: bastos88leonardo@gmail.com
 
-
-
-
-### 📆 Funcionalidades
- Agendar novos cortes com nome e horário
-
- Visualizar horários agendados por período (manhã, tarde e noite)
-
- Cancelar agendamentos com confirmação
-
- Filtro automático por data
-
- 💡 (futuro) Integração com banco real ou Firebase
-
- 💡 (futuro) Tela administrativa para barbearia
+---
 
