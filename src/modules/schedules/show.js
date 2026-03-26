@@ -1,13 +1,13 @@
 import dayjs from "dayjs";
 
-// seleciona as seções manhã, tarde e noite
-
-const periodMorning = document.getElementById("period-morning");
-const periodAfternoon = document.getElementById("period-afternoon");
-const periodNight = document.getElementById("period-night");
-
-export function schedulesShow({ bookDays }) {
+export function schedulesShow({ bookDays = [] }) {
   try {
+    const periodMorning = document.getElementById("period-morning");
+    const periodAfternoon = document.getElementById("period-afternoon");
+    const periodNight = document.getElementById("period-night");
+
+    if (!periodMorning || !periodAfternoon || !periodNight) return;
+
     periodMorning.innerHTML = "";
     periodAfternoon.innerHTML = "";
     periodNight.innerHTML = "";
@@ -18,9 +18,8 @@ export function schedulesShow({ bookDays }) {
       const time = document.createElement("strong");
       const name = document.createElement("span");
 
-      // adciona o id do agendamento
-
-      item.setAttribute("data-id", schedule.id);
+      // adiciona o id do agendamento
+      if (schedule.id) item.setAttribute("data-id", schedule.id);
 
       time.textContent = dayjs(schedule.when).format("HH:mm");
       name.textContent = schedule.name;
@@ -31,13 +30,12 @@ export function schedulesShow({ bookDays }) {
       cancelIcon.setAttribute("src", "./src/assets/cancel.svg");
       cancelIcon.setAttribute("alt", "cancelar");
 
-      // adciona o tempo e nome no icone
+      // adiciona o tempo e nome no item
       item.append(time, name, cancelIcon);
 
       const hour = dayjs(schedule.when).hour();
 
-      // renderiza o agendamento conforme o período( manha, tarde ou noite )
-
+      // renderiza o agendamento conforme o período (manhã, tarde ou noite)
       if (hour <= 12) {
         periodMorning.appendChild(item);
       } else if (hour > 12 && hour <= 18) {
