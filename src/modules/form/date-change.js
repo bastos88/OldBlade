@@ -1,8 +1,16 @@
 import { schedulesHour } from "../schedules/load";
-// seleciona o input de data
-const selectedDate = document.getElementById("date");
 
-selectedDate.onchange = () => {
-  schedulesHour();
-};
-schedulesHour();
+// Registra o handler de alteração da data após o DOM estar pronto.
+function setupDateChange() {
+  const selectedDate = document.getElementById("date");
+  if (!selectedDate) return;
+  selectedDate.onchange = () => {
+    schedulesHour();
+  };
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", setupDateChange);
+} else {
+  setupDateChange();
+}

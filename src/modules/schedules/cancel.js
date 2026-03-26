@@ -1,23 +1,25 @@
 import { scheduleCancel } from "../../services/cancel-schedules.js";
 import { schedulesHour } from "../schedules/load.js";
 
-const periods = document.querySelectorAll(".period");
+// Event delegation to handle clicks on dynamically created cancel icons
+document.addEventListener("click", async (e) => {
+  const target = e.target;
+  if (!target || !target.classList) return;
 
-periods.forEach((period) => {
-  period.addEventListener("click", async (e) => {
-    if (e.target.classList.contains("cancel-icon")) {
-      const item = e.target.closest("li");
-      const { id } = item.dataset;
-      const idNumber = Number(id);
+  if (target.classList.contains("cancel-icon")) {
+    const item = target.closest("li");
+    if (!item) return;
+    const { id } = item.dataset;
+    if (!id) return;
 
-      if (idNumber) {
-        const isConfirm = confirm("Deseja cancelar o agendamento?");
+    const isConfirm = confirm("Deseja cancelar o agendamento?");
+    if (!isConfirm) return;
 
-        if (isConfirm) {
-          await scheduleCancel({ id: idNumber });
-          schedulesHour();
-        }
-      }
+    try {
+      await scheduleCancel({ id });
+      schedulesHour();
+    } catch (err) {
+      console.log(err);
     }
-  });
+  }
 });

@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
-import { apiConfig } from "./api-config";
+import { apiConfig } from "./api-config.js";
+
 export async function scheduleByDay({ date }) {
   try {
     // faz a requisição
@@ -14,6 +15,8 @@ export async function scheduleByDay({ date }) {
     );
     return dailySchedules;
   } catch (error) {
+    console.log(error);
     alert("Não foi possível buscar os agendamentos solicitados");
+    return [];
   }
 }
